@@ -1,0 +1,32 @@
+= Index égalité Femme / Homme
+
+Pouvoir faire un croisement entre les données de https://travail-emploi.gouv.fr/droit-du-travail/egalite-professionnelle-discrimination-et-harcelement/indexegapro[l'index de l'égalité Femme / Homme] et https://annuaire-entreprises.data.gouv.fr/[l'annuaire des entreprises].
+
+== Resources
+
+=== Index de l'égalité Femme / Homme
+
+https://index-egapro.travail.gouv.fr/consulter-index/
+
+On peut y télécharger au format CSV les données pour les entreprises de plus de 250 salariés.
+
+=== Annuaire des entreprises
+
+https://entreprise.data.gouv.fr/api_doc/sirene
+
+Une API est mise à disposition pour pouvoir récupérer des données sur les entreprises Françaises.
+
+.Exemple : Récupération des entreprises actives au code NAF `62.02A` (ESN)
+----
+https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/?activite_principale=62.02A&etat_administratif=A
+----
+
+== Fonctionnement
+
+_Pré-requis :_
+Télécharger https://index-egapro.travail.gouv.fr/consulter-index/[le fichier index] et le placer dans le répertoire correspondant à la propriété `fichier.index.nom`.
+
+Au lancement, l'application va essayer de lire un fichier (propriété `fichier.etablissement.nom`) contenant les informations nécessaires sur les entreprises.
+Si ce fichier n'existe pas, elle appelera l'API pour constituer ce fichier (ce traitement peut prendre plusieurs dizaines de minutes).
+
+Une fois les deux fichiers constitué, l'application peut croiser les données à partir du SIREN des entreprises.
