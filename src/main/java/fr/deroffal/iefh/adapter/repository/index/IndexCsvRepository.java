@@ -19,7 +19,7 @@ import static fr.deroffal.iefh.configuration.CsvConfiguration.CSV_SEPARATOR;
 @RequiredArgsConstructor
 class IndexCsvRepository implements IndexRepositoryPort {
 
-    @Value("${fichier.index.nom}")
+    @Value("${fichier.entree.index.nom}")
     private String nomFichier;
 
     private final IndexCsvMapper indexCsvMapper;

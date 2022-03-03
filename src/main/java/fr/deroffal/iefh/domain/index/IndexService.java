@@ -12,7 +12,7 @@ public class IndexService {
 
     private final IndexRepositoryPort indexRepository;
 
-    public List<Index> chargerIndexBySiren(final Collection<String> sirens) {
-        return indexRepository.findAllBySirenAndNoteNotNull(sirens).stream().filter(index -> index.getNote() != null).toList();
+    public List<Index> chargerIndexPourEtablissementDansSiren(final Collection<String> sirens) {
+        return indexRepository.findAllBySirenAndNoteNotNull(sirens);
     }
 }

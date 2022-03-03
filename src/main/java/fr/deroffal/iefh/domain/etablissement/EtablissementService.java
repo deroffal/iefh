@@ -1,10 +1,10 @@
 package fr.deroffal.iefh.domain.etablissement;
 
-import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -23,7 +23,7 @@ public class EtablissementService {
         if (etablissements.isEmpty()) {
             log.info("Pas de fichier csv pour les établissements, récupération via l'API.");
             etablissements = etablissementSirenePort.listerEtablissementActifPourCodeNaf(CODE_NAF);
-            etablissementCsvWriterPort.ecrireFichier(etablissements);
+            etablissementCsvWriterPort.ecrireFichierCsvEtablissements(etablissements);
         }
         return etablissements;
     }
